@@ -1,0 +1,1734 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y DISEÑO DE SISTEMA (CSS VARIABLES)
+   ========================================================================== */
+:root {
+    /* Paleta de colores - Estilo Dashboard Tecnológico */
+    --bg-app: #0d1117;
+    /* Fondo oscuro principal */
+    --bg-card: #161b22;
+    /* Fondo de tarjetas y paneles */
+    --bg-panel: #21262d;
+    /* Fondo secundario de componentes */
+    --border-color: #30363d;
+    /* Bordes sutiles */
+    --border-hover: #8b949e;
+    /* Bordes al hacer hover */
+
+    /* Colores del estado de los nodos */
+    --color-node-default: #21262d;
+    --color-node-stroke: #58a6ff;
+    --color-node-visited: #1f6feb;
+    --color-node-visited-stroke: #39d353;
+    --color-node-active: #ffea79;
+    --color-node-active-stroke: #ff7b72;
+
+    /* Textos */
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-muted: #484f58;
+
+    /* Acentos y Temas */
+    --color-primary: #58a6ff;
+    /* Azul cian */
+    --color-success: #39d353;
+    /* Verde */
+    --color-warning: #ffea79;
+    /* Amarillo */
+    --color-danger: #ff7b72;
+    /* Naranja-Rojo */
+    --color-purple: #bc8cff;
+    /* Púrpura */
+
+    /* Fuentes y Sombras */
+    --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 15px rgba(88, 166, 255, 0.3);
+
+    /* Transiciones */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset y configuraciones base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ocultar elementos visuales */
+.hidden {
+    display: none !important;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   CABECERA (HEADER)
+   ========================================================================== */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-icon {
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 6px rgba(88, 166, 255, 0.5));
+}
+
+.header-text h1 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(90deg, #58a6ff, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-text p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Botones Icono (Audio / Acciones) */
+.btn-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.btn-icon:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(88, 166, 255, 0.1);
+    box-shadow: 0 0 10px rgba(88, 166, 255, 0.15);
+}
+
+.btn-icon .icon {
+    fill: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+
+.btn-icon:hover .icon {
+    fill: var(--color-primary);
+}
+
+/* ==========================================================================
+   SECCIÓN DE TEORÍA (CONCEPTOS)
+   ========================================================================== */
+.theory-section {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.theory-card {
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: help;
+    transition: var(--transition-normal);
+}
+
+.theory-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.card-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background-color: var(--bg-panel);
+    color: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+
+.theory-card:hover .card-icon-wrapper {
+    background-color: rgba(88, 166, 255, 0.15);
+    color: var(--color-primary);
+}
+
+.card-header h3 {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.card-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.card-desc strong {
+    color: var(--text-primary);
+}
+
+/* Colores específicos de iconos teóricos en hover */
+.theory-card:hover .highlight-root {
+    color: var(--color-warning);
+    background-color: rgba(255, 234, 121, 0.1);
+}
+
+.theory-card:hover .highlight-parent {
+    color: var(--color-purple);
+    background-color: rgba(188, 140, 255, 0.1);
+}
+
+.theory-card:hover .highlight-child {
+    color: var(--color-primary);
+    background-color: rgba(88, 166, 255, 0.1);
+}
+
+.theory-card:hover .highlight-leaf {
+    color: var(--color-success);
+    background-color: rgba(57, 211, 83, 0.1);
+}
+
+/* ==========================================================================
+   DISEÑO PRINCIPAL DEL SIMULADOR (DASHBOARD GRID)
+   ========================================================================== */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 24px;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.dashboard-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 12px;
+}
+
+.panel-header h2 {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.panel-subtitle {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   VISUALIZADOR DEL ÁRBOL (SVG)
+   ========================================================================== */
+.svg-container {
+    background-color: var(--bg-app);
+    background-image:
+        linear-gradient(rgba(88, 166, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(88, 166, 255, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 820px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modo Pan: cursor grab */
+.svg-container.pan-mode {
+    cursor: grab;
+    border-color: var(--color-purple);
+    box-shadow: 0 0 0 2px rgba(188, 140, 255, 0.3);
+}
+
+.svg-container.pan-mode.is-panning {
+    cursor: grabbing;
+}
+
+#tree-svg {
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    user-select: none;
+}
+
+/* --- ESTILOS DE NODOS EN SVG --- */
+.node {
+    cursor: pointer;
+}
+
+.node circle {
+    fill: var(--color-node-default);
+    stroke: var(--color-node-stroke);
+    stroke-width: 3px;
+    r: 22px;
+    transition: r var(--transition-normal),
+        fill var(--transition-normal),
+        stroke var(--transition-normal),
+        filter var(--transition-normal);
+}
+
+.node text {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 600;
+    fill: var(--text-primary);
+    text-anchor: middle;
+    dominant-baseline: central;
+    pointer-events: none;
+    transition: fill var(--transition-normal);
+}
+
+/* Efecto hover sobre nodos individuales */
+.node:hover circle {
+    fill: var(--bg-panel);
+    stroke: var(--color-primary);
+    r: 24px;
+    filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.4));
+}
+
+/* El texto del nodo siempre mantiene buen contraste en hover */
+.node:hover text {
+    fill: var(--text-primary);
+}
+
+/* Estado: Nodo Visitado */
+.node.visited circle {
+    fill: var(--color-node-visited);
+    stroke: var(--color-node-visited-stroke);
+}
+
+/* Estado: Nodo Activo (Visita en curso con animación) */
+.node.active circle {
+    fill: var(--color-node-active);
+    stroke: var(--color-node-active-stroke);
+    animation: active-pulse 1.4s infinite ease-in-out;
+}
+
+/* Texto en nodo activo: oscuro fijo para contrastar con fondo amarillo (#ffea79) */
+.node.active text {
+    fill: #0d1117;
+}
+
+/* --- ESTILOS DE ARISTAS (CONEXIONES) EN SVG --- */
+.edge {
+    stroke: var(--border-color);
+    stroke-width: 3.5px;
+    stroke-linecap: round;
+    transition: stroke var(--transition-normal),
+        stroke-width var(--transition-normal),
+        stroke-dasharray var(--transition-normal);
+}
+
+/* Conexión transitada/visitada */
+.edge.visited {
+    stroke: var(--color-success);
+    stroke-width: 4px;
+}
+
+/* Conexión activa en el paso actual (efecto camino hormigas / dash) */
+.edge.active {
+    stroke: var(--color-primary);
+    stroke-width: 5px;
+    stroke-dasharray: 8, 4;
+    animation: dash-scrolling 0.8s linear infinite;
+}
+
+/* --- EFECTOS DE TEORÍA DEL HOVER --- */
+/* Clases aplicadas vía JS cuando se pasa el cursor sobre las tarjetas de la teoría */
+.node.highlighted circle {
+    r: 25px;
+    stroke-width: 4px;
+    filter: drop-shadow(0 0 12px var(--highlight-color));
+}
+
+.node.highlight-root circle {
+    stroke: var(--color-warning);
+    fill: rgba(255, 234, 121, 0.15);
+    --highlight-color: var(--color-warning);
+}
+
+.node.highlight-parent circle {
+    stroke: var(--color-purple);
+    fill: rgba(188, 140, 255, 0.15);
+    --highlight-color: var(--color-purple);
+}
+
+.node.highlight-child circle {
+    stroke: var(--color-primary);
+    fill: rgba(88, 166, 255, 0.15);
+    --highlight-color: var(--color-primary);
+}
+
+.node.highlight-leaf circle {
+    stroke: var(--color-success);
+    fill: rgba(57, 211, 83, 0.15);
+    --highlight-color: var(--color-success);
+}
+
+/* ==========================================================================
+   ANIMACIONES CSS
+   ========================================================================== */
+@keyframes active-pulse {
+    0% {
+        r: 22px;
+        filter: drop-shadow(0 0 2px rgba(255, 234, 121, 0.4));
+    }
+
+    50% {
+        r: 26px;
+        filter: drop-shadow(0 0 15px rgba(255, 234, 121, 0.8));
+    }
+
+    100% {
+        r: 22px;
+        filter: drop-shadow(0 0 2px rgba(255, 234, 121, 0.4));
+    }
+}
+
+@keyframes dash-scrolling {
+    to {
+        stroke-dashoffset: -12;
+    }
+}
+
+@keyframes pill-pop-in {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ==========================================================================
+   CONTROLES MULTIMEDIA (SIMULADOR)
+   ========================================================================== */
+.controls-panel {
+    margin-top: 16px;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.playback-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-ctrl {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-ctrl svg {
+    fill: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+
+.btn-ctrl:hover {
+    background-color: var(--border-color);
+    border-color: var(--text-secondary);
+    transform: scale(1.05);
+}
+
+.btn-ctrl:hover svg {
+    fill: var(--text-primary);
+}
+
+.btn-ctrl.btn-play {
+    width: 52px;
+    height: 52px;
+    background-color: var(--color-primary);
+    border: none;
+}
+
+.btn-ctrl.btn-play svg {
+    fill: var(--bg-app);
+}
+
+.btn-ctrl.btn-play:hover {
+    background-color: #79b8ff;
+    transform: scale(1.08);
+    box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
+}
+
+.btn-ctrl.btn-play:hover svg {
+    fill: var(--bg-app);
+}
+
+.btn-ctrl:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Control deslizante de velocidad (Range Slider) */
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-grow: 1;
+    max-width: 320px;
+}
+
+.control-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+}
+
+.slider-text {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    user-select: none;
+}
+
+#speed-slider {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--border-color);
+    outline: none;
+    cursor: pointer;
+}
+
+#speed-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    transition: var(--transition-fast);
+}
+
+#speed-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.5);
+}
+
+/* Botones estándar del panel */
+.btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.btn-secondary {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    border-color: var(--border-hover);
+    background-color: var(--border-color);
+}
+
+.btn.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.2);
+}
+
+.btn-svg {
+    fill: currentColor;
+}
+
+/* ==========================================================================
+   PANEL DE CONFIGURACIÓN Y MONITOREO (COLUMNA DERECHA)
+   ========================================================================== */
+.traversal-selector-section {
+    margin-bottom: 24px;
+}
+
+.traversal-tabs {
+    display: flex;
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 4px;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+.tab-btn {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 4px;
+    border-radius: 8px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-panel);
+}
+
+.tab-btn.active {
+    color: var(--bg-app);
+    background-color: var(--color-primary);
+    font-weight: 600;
+}
+
+.tab-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: none !important;
+    color: var(--text-secondary) !important;
+}
+
+.traversal-info {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background-color: var(--bg-panel);
+    border-left: 3px solid var(--color-primary);
+    padding: 10px 14px;
+    border-radius: 0 8px 8px 0;
+    line-height: 1.45;
+}
+
+/* Progreso */
+.progress-section {
+    margin-bottom: 24px;
+}
+
+.progress-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.progress-bar-container {
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-color);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+    width: 0%;
+    border-radius: 5px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estructura de Memoria (Pila / Cola) */
+.structure-section {
+    margin-bottom: 24px;
+}
+
+.structure-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.structure-info-icon {
+    cursor: help;
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+.structure-container {
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.structure-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+/* Cajas que representan elementos en memoria */
+.struct-item {
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    min-width: 28px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    animation: pill-pop-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.struct-item.struct-active {
+    background-color: rgba(88, 166, 255, 0.15);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.2);
+}
+
+/* Indicador de dirección de pila/cola */
+.struct-arrow {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: bold;
+    user-select: none;
+}
+
+/* Consola de Explicaciones */
+.console-section {
+    margin-bottom: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.console-box {
+    background-color: #090d13;
+    border: 1px solid var(--border-color);
+    border-left: 3.5px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 14px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #8ae9fd;
+    /* Azul terminal agradable */
+    min-height: 80px;
+    flex-grow: 1;
+    overflow-y: auto;
+    max-height: 140px;
+    display: flex;
+    align-items: center;
+}
+
+.console-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Resultados secuenciales */
+.result-section {
+    margin-top: auto;
+}
+
+.sequence-box {
+    background-color: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sequence-placeholder {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+
+/* Píldora de nodo en secuencia de resultados */
+.node-pill {
+    animation: pill-pop-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    background-color: var(--color-node-visited);
+    border: 1.5px solid var(--color-node-visited-stroke);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.node-arrow {
+    color: var(--text-muted);
+    font-weight: bold;
+    font-size: 0.75rem;
+    user-select: none;
+    animation: pill-pop-in 0.3s ease-out forwards;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
+.app-footer {
+    text-align: center;
+    padding: 16px;
+    margin-top: auto;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (RESPONSIVE MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        /* Stacks column layouts */
+    }
+
+    .console-box {
+        min-height: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .header-actions {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-panel {
+        padding: 16px;
+    }
+
+    /* Reducir altura de pizarra en tablets */
+    .svg-container {
+        height: 420px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cards-grid {
+        grid-template-columns: 1fr;
+        /* Una columna para móviles */
+    }
+
+    .controls-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .playback-controls {
+        justify-content: center;
+    }
+
+    .speed-control {
+        max-width: 100%;
+    }
+
+    .traversal-tabs {
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        width: calc(50% - 4px);
+        /* Píldoras de selector ocupan 50% */
+    }
+
+    /* Reducir altura de pizarra en móviles */
+    .svg-container {
+        height: 320px;
+    }
+}
+
+/* ==========================================================================
+   TEMA CLARO GLOBAL (.light-theme)
+   ========================================================================== */
+.light-theme {
+    --bg-app: #f4f6f9;
+    --bg-card: #ffffff;
+    --bg-panel: #eef2f6;
+    --border-color: #d1d5db;
+    --border-hover: #9ca3af;
+
+    --color-node-default: #ffffff;
+    --color-node-stroke: #2563eb;
+    --color-node-visited: #2563eb;
+    --color-node-visited-stroke: #10b981;
+    --color-node-active: #fef08a;
+    --color-node-active-stroke: #d97706;
+
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+
+    --color-primary: #2563eb;
+    --color-success: #10b981;
+    --color-warning: #f59e0b;
+    --color-danger: #ef4444;
+    --color-purple: #8b5cf6;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-glow: 0 0 15px rgba(37, 99, 235, 0.15);
+}
+
+.light-theme .console-box {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+    color: #0f172a;
+}
+
+.light-theme .struct-item {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    color: #1f2937;
+}
+
+.light-theme .struct-item.struct-active {
+    background-color: rgba(37, 99, 235, 0.1);
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+.light-theme .node circle {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.08));
+}
+
+/* En tema claro, el texto del nodo por defecto siempre es oscuro */
+.light-theme .node text {
+    fill: #1f2937;
+}
+
+/* En tema claro, texto en nodo activo (fondo amarillo): oscuro para contraste */
+.light-theme .node.active text {
+    fill: #1f2937;
+}
+
+/* En tema claro, texto en nodo visitado (fondo azul oscuro): blanco para contraste */
+.light-theme .node.visited text {
+    fill: #ffffff;
+}
+
+/* En tema claro, hover mantiene texto oscuro legible */
+.light-theme .node:hover text {
+    fill: #1f2937;
+}
+
+/* En tema claro, el hover del círculo usa azul suave en vez de gris */
+.light-theme .node:hover circle {
+    fill: #e8f0fe;
+    stroke: #2563eb;
+    filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.3));
+}
+
+.light-theme .node.active circle {
+    filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.6));
+}
+
+/* En tema claro, la cuadrícula de la pizarra usa un color oscuro suave */
+.light-theme .svg-container {
+    background-image:
+        linear-gradient(rgba(37, 99, 235, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.06) 1px, transparent 1px);
+}
+
+/* ==========================================================================
+   SISTEMA DE VISTAS (main-view como contenedor activo)
+   ========================================================================== */
+.view-section {
+    display: none;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.view-section.active {
+    display: flex;
+}
+
+/* Métricas del Árbol */
+.metrics-row,
+.build-metrics-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.metric-badge {
+    flex-grow: 1;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.metric-val {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* ==========================================================================
+   PSEUDOCÓDIGO SINCRONIZADO
+   ========================================================================== */
+.pseudocode-section {
+    margin-bottom: 24px;
+}
+
+.pseudocode-box {
+    background-color: #090d13;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    overflow-x: auto;
+}
+
+.light-theme .pseudocode-box {
+    background-color: #f8fafc;
+}
+
+.pseudocode-list {
+    list-style: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+.light-theme .pseudocode-list {
+    color: #334155;
+}
+
+.pseudo-line {
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: pre;
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.pseudo-line.pseudo-active {
+    background-color: rgba(88, 166, 255, 0.25);
+    color: #58a6ff;
+    font-weight: 600;
+    border-left: 3.5px solid var(--color-primary);
+    padding-left: 5px;
+}
+
+.light-theme .pseudo-line.pseudo-active {
+    background-color: rgba(37, 99, 235, 0.12);
+    color: #2563eb;
+}
+
+/* ==========================================================================
+   TOOLTIPS INFORMATIVOS
+   ========================================================================== */
+.node-tooltip {
+    position: absolute;
+    background-color: rgba(22, 27, 34, 0.95);
+    color: #f0f6fc;
+    border: 1px solid var(--border-color);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-family: var(--font-heading);
+    pointer-events: none;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.node-tooltip.visible {
+    opacity: 1;
+}
+
+/* Tema claro: tooltip con fondo oscuro siempre para máximo contraste */
+.light-theme .node-tooltip {
+    background-color: rgba(15, 23, 42, 0.92);
+    color: #f1f5f9;
+    border-color: #334155;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* ==========================================================================
+   COPIAR AL PORTAPAPELES
+   ========================================================================== */
+.panel-subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btn-copy {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-family: var(--font-heading);
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition-fast);
+}
+
+.btn-copy:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    background-color: rgba(88, 166, 255, 0.08);
+}
+
+.btn-copy.copied {
+    border-color: var(--color-success);
+    color: var(--color-success);
+    background-color: rgba(57, 211, 83, 0.08);
+}
+
+/* ==========================================================================
+   ANIMACIONES DE CASCADA DE NODO (ENTRADA)
+   ========================================================================== */
+.node {
+    opacity: 0;
+    transform: scale(0.6);
+    animation: node-appear 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes node-appear {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ==========================================================================
+   EFECTO DE CONFETI NATIVO
+   ========================================================================== */
+.confeti-particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confeti-shoot 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes confeti-shoot {
+    0% {
+        transform: translate(0, 0) rotate(0deg) scale(1.2);
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translate(var(--dx), var(--dy)) rotate(var(--rot)) scale(0.4);
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   VARIANTES DE BOTONES ADICIONALES
+   ========================================================================== */
+
+/* Botón Primario (Azul) */
+.btn.btn-primary {
+    background: linear-gradient(135deg, #1f6feb, #58a6ff);
+    border-color: #1f6feb;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(31, 111, 235, 0.35);
+}
+
+.btn.btn-primary:hover {
+    background: linear-gradient(135deg, #388bfd, #79c0ff);
+    box-shadow: 0 4px 20px rgba(31, 111, 235, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Botón Acento (Violeta/Purpura) - para acciones llamativas */
+.btn.btn-accent {
+    background: linear-gradient(135deg, #7c3aed, #bc8cff);
+    border-color: #7c3aed;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.35);
+}
+
+.btn.btn-accent:hover {
+    background: linear-gradient(135deg, #9d5cf8, #d4aeff);
+    box-shadow: 0 4px 20px rgba(124, 58, 237, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Botón Acento Numérico */
+.btn.btn-accent-num {
+    background: linear-gradient(135deg, #0f766e, #14b8a6);
+    border-color: #0f766e;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(15, 118, 110, 0.35);
+}
+
+.btn.btn-accent-num:hover {
+    background: linear-gradient(135deg, #14b8a6, #2dd4bf);
+    box-shadow: 0 4px 20px rgba(15, 118, 110, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Botón Éxito (Verde) */
+.btn.btn-success {
+    background: linear-gradient(135deg, #1a7f37, #39d353);
+    border-color: #1a7f37;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(26, 127, 55, 0.35);
+}
+
+.btn.btn-success:hover {
+    background: linear-gradient(135deg, #2da44e, #56d473);
+    box-shadow: 0 4px 20px rgba(26, 127, 55, 0.5);
+    transform: translateY(-1px);
+}
+
+/* Botón Peligro (Rojo) */
+.btn.btn-danger {
+    background: linear-gradient(135deg, #b91c1c, #ff7b72);
+    border-color: #b91c1c;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(185, 28, 28, 0.35);
+}
+
+.btn.btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626, #ff9a94);
+    box-shadow: 0 4px 20px rgba(185, 28, 28, 0.5);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   PANEL DE ACCIONES DEL VISUALIZADOR
+   ========================================================================== */
+.panel-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+/* ==========================================================================
+   PANEL CONSTRUCTOR DE ÁRBOLES
+   ========================================================================== */
+.builder-section {
+    background: linear-gradient(135deg, #161b22 0%, #1c2128 100%);
+    border: 1px solid var(--color-primary);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-md), 0 0 30px rgba(88, 166, 255, 0.08);
+    animation: builder-slide-in 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+@keyframes builder-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header del constructor */
+.builder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.builder-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.builder-title-group h2 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #58a6ff, #bc8cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.builder-icon {
+    stroke: var(--color-primary);
+    filter: drop-shadow(0 0 5px rgba(88, 166, 255, 0.4));
+    flex-shrink: 0;
+}
+
+/* Botón cerrar */
+.btn-icon-close {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.btn-icon-close:hover {
+    background: rgba(255, 123, 114, 0.15);
+    border-color: var(--color-danger);
+    color: var(--color-danger);
+    transform: rotate(90deg);
+}
+
+/* Cuerpo del constructor: dos columnas */
+.builder-body {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.type-switch {
+    display: inline-flex;
+    gap: 8px;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.type-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-panel);
+    color: var(--text-secondary);
+    border-radius: 999px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.type-btn.active {
+    background: linear-gradient(135deg, var(--color-primary), #7dd3fc);
+    color: #07111d;
+    border-color: var(--color-primary);
+}
+
+.type-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--text-primary);
+}
+
+/* Columna de formulario */
+.builder-form-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.builder-insert-group,
+.builder-actions-group,
+.builder-nodes-list {
+    background: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.builder-desc {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+/* Input + Botón en fila */
+.builder-input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.builder-input {
+    flex: 1;
+    background: var(--bg-panel);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 14px;
+    outline: none;
+    transition: var(--transition-fast);
+    -moz-appearance: textfield;
+}
+
+.builder-input::-webkit-inner-spin-button,
+.builder-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.builder-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+    background: var(--bg-card);
+}
+
+.builder-input::placeholder {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+/* Mensaje de feedback */
+.builder-msg {
+    min-height: 22px;
+    font-size: 0.82rem;
+    margin-top: 8px;
+    border-radius: 6px;
+    padding: 4px 8px;
+    transition: var(--transition-fast);
+}
+
+.builder-msg--success {
+    color: var(--color-success);
+    background: rgba(57, 211, 83, 0.08);
+    border: 1px solid rgba(57, 211, 83, 0.2);
+}
+
+.builder-msg--warning {
+    color: var(--color-warning);
+    background: rgba(255, 234, 121, 0.08);
+    border: 1px solid rgba(255, 234, 121, 0.2);
+}
+
+.builder-msg--info {
+    color: var(--color-primary);
+    background: rgba(88, 166, 255, 0.08);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+}
+
+/* Acciones rápidas */
+.builder-quick-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Badge de conteo */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 99px;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 6px;
+    line-height: 1;
+}
+
+/* Pills de nodos en el constructor */
+.nodes-pills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 40px;
+    align-items: center;
+}
+
+.builder-node-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-panel), var(--bg-card));
+    border: 1.5px solid var(--color-primary);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 4px 10px;
+    transition: var(--transition-fast);
+    cursor: default;
+}
+
+.builder-node-pill:hover {
+    background: rgba(88, 166, 255, 0.12);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(88, 166, 255, 0.2);
+}
+
+.builder-placeholder {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Columna de vista previa */
+.builder-preview-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.builder-svg-container {
+    background: var(--bg-app);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+#builder-tree-svg {
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+.builder-svg-placeholder {
+    fill: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Responsive: colapsar a una columna en pantallas pequeñas */
+@media (max-width: 900px) {
+    .builder-body {
+        grid-template-columns: 1fr;
+    }
+
+    .builder-svg-container {
+        aspect-ratio: 4 / 3;
+        max-height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+    .panel-actions {
+        gap: 6px;
+    }
+
+    .panel-actions .btn span {
+        display: none;
+    }
+
+    .panel-actions .btn {
+        padding: 8px 10px;
+        min-width: unset;
+    }
+}
