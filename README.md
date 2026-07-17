@@ -17,8 +17,6 @@ Un simulador interactivo desarrollado en entorno web para la visualización, an�
 ---
 
 ## 👥 Integrantes
-* Alcedo Pumaricra Adriano Raphael
-* Medina Alejandro Jhordan Rully
 * Meza Morales Anggela Guiliana
 * Vásquez Ramos Luis Miguel
 
